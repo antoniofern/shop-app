@@ -68,7 +68,7 @@ class Products with ChangeNotifier {
   //   notifyListeners();
   // }
 
-  Future<void> fetchAndSetProduct() async {
+  Future<void> fetchAndSetProducts() async {
     const url = 'https://flutter-update-ba5e2.firebaseio.com/products.json';
     try {
       final response = await http.get(url);
@@ -86,7 +86,6 @@ class Products with ChangeNotifier {
       });
       _items = loadedProducts;
       notifyListeners();
-      print(json.decode(response.body));
     } catch (error) {
       throw error;
     }
